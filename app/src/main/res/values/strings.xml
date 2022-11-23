@@ -3,8 +3,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="user_selection_instructions">Seleccione tu usuario</string>
-    
+
     <string name="calls">LLamadas</string>
     <string name="chats">Chats</string>
     <string name="social">Social</string>
+    <string name="empty_chats">No tienes mensajes para mostrar.</string>
 </resources>
