@@ -57,6 +57,7 @@ class ChatFragment : Fragment() {
         setupClickListeners()
         setupUserInformation()
         setupMessageListener()
+
         return binding.root
     }
 
@@ -90,7 +91,7 @@ class ChatFragment : Fragment() {
         viewModel.sendMessageState.observe(viewLifecycleOwner){ state ->
             when(state){
                 is Resource.Success -> clearMessage()
-                is Resource.Error -> Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
+                is Resource.Error ->  clearMessage() //Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
                 else -> Unit
             }
         }
@@ -100,6 +101,7 @@ class ChatFragment : Fragment() {
         val userToText = UserHelper.usersList.find {
             it.id == args.chatId
         }?: throw Exception("Invalid chat id")
+
     with(binding){
         chatImage.setImageResource(userToText.image)
         chatName.text = userToText.name

@@ -5,11 +5,13 @@ import com.example.message.domain.model.Message
 import com.example.message.domain.usecase.FetchMessageRealTimeUseCase
 import com.example.message.domain.usecase.SendMessageUseCase
 import com.example.message.util.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class ChatViewModel @Inject constructor(
     private val sendMessageUseCase: SendMessageUseCase,
     private val fetchMessageRealTimeUseCase: FetchMessageRealTimeUseCase,

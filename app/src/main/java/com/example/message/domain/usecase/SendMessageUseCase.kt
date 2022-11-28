@@ -9,7 +9,6 @@ import javax.inject.Inject
 
 class SendMessageUseCase @Inject constructor(
     private val repository: MessagesRepository,
-    private val getSenderIdUseCase: SendMessageUseCase
 ) {
     suspend operator fun invoke(message: Message): Flow<Resource<Unit>> = flow {
 

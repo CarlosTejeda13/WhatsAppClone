@@ -14,7 +14,8 @@ import java.util.*
 const val INCOMING_MESSAGE = 0
 const val OUTGOING_MESSAGE = 1
 
-class MessageListAdapter(   private val currentUserId: String
+class MessageListAdapter(
+    private val currentUserId: String
 ): ListAdapter<Message, BaseListViewHolder<*>>(DiffUtilCallback)  {
 
     private object DiffUtilCallback : DiffUtil.ItemCallback<Message>() {
