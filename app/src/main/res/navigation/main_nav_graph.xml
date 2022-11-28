@@ -33,11 +33,14 @@
         android:name="com.example.message.ui.chat.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat">
-
+        <argument
+            android:name="userId"
+            app:argType="string"
+            app:nullable="false"/>
         <argument
             android:name="chatId"
             app:argType="string"
-            app:nullable="false">
-        </argument>
+            app:nullable="false"/>
+
     </fragment>
 </navigation>

@@ -5,12 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.message.data.local.UserHelper
 import com.example.message.databinding.FragmentChatsBinding
 import com.example.message.domain.ext.gone
 import com.example.message.domain.ext.show
+import com.example.message.ui.dashboard.DashboardFragmentArgs
 import com.example.message.ui.dashboard.DashboardFragmentDirections
 
 
@@ -20,9 +21,13 @@ class ChatsFragment : Fragment() {
     private val binding: FragmentChatsBinding
         get() = _binding!!
 
-    private val chatListAdapter = ChatListAdapter(){
-        val action = DashboardFragmentDirections.actionDashboardFragmentToChatFragment(chatId = it.id)
-        findNavController().navigate(action)
+    private val args: DashboardFragmentArgs by navArgs()
+
+    private val chatListAdapter by lazy {
+        ChatListAdapter(){
+            val action = DashboardFragmentDirections.actionDashboardFragmentToChatFragment(chatId = it.id, userId = arguments?.getString("userId")?: throw Exception("Invalid user id"))
+            findNavController().navigate(action)
+        }
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
